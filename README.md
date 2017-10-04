@@ -1,2 +1,0 @@
-# Fakultet
-FakultetApp
