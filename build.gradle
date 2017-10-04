@@ -28,9 +28,17 @@ dependencies {
         compile('org.springframework.boot:spring-boot-starter-jdbc')
         compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('mysql:mysql-connector-java')
+        runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test') 
     //dodata linija za povezivanje sa oracleSql bazom   a prvo se mora skinuti JAR
-        compile files('C:\\jws\\ojdbc6.jar')
+//        compile files('C:\\jws\\ojdbc6.jar')
 
+    repositories{
+        mavenLocal()
+    }
+    dependencies{
+        compile('com.oracle:ojdbc6:11.2.0.4.0')
+    }
+    
+    //obratiti paznju posto se nalazi na mavenLocal 
 }
