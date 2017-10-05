@@ -14,8 +14,6 @@ public interface StudentService {
      public Student findById(int id);
      public Student save(Student student);
      public void delete(int id);
-    
-            
-            
+         
 //getAllStudents, findById, save, delete
 }
