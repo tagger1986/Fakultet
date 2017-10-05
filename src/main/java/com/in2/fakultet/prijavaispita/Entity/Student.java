@@ -1,24 +1,41 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Student {
     
     @Id
+    @Column
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     // da li treba nesto da se radi sa PK posebno?
+    @Column
     private int code;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private String description;
+    @Column
     private String creationDate;
+    @Column
     private int createdBy;
+    @Column
     private int lastUpdatedBy;
+    @Column
     private String lastUpdatedDate;
+    @Column
     private String rowStatus;
+    
+    public Student() {
+    }
 
     public Student(int id, int code, String name, String surname, String description, String creationDate, int createdBy, int lastUpdatedBy, String lastUpdatedDate, String rowStatus) {
         this.id = id;
@@ -33,11 +50,6 @@ public class Student {
         this.rowStatus = rowStatus;
     }
 
-    public Student() {
-    }
-
-    
-    
     
     public int getId() {
         return id;

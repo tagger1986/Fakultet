@@ -1,18 +1,21 @@
 
 package com.in2.fakultet.prijavaispita.Service;
 
-import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.in2.fakultet.prijavaispita.Entity.Student;
+import java.util.List;
 
-@Service
-public class StudentService {
-    @Autowired
-    private StudentRepository studentRepository;
+/**
+ *
+ * @author nosto
+ */
+public interface StudentService {
     
+     public List<Student> getAllStudents();
+     public Student findById(int id);
+     public Student save(Student student);
+     public void delete(int id);
     
-    
-    
-    
-    
+            
+            
+//getAllStudents, findById, save, delete
 }

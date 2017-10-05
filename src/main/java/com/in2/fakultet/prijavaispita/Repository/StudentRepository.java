@@ -5,10 +5,6 @@ import com.in2.fakultet.prijavaispita.Entity.Student;
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 
-/**
- *
- * @author nosto
- */
 public interface StudentRepository extends CrudRepository<Student, Serializable>{
     
     

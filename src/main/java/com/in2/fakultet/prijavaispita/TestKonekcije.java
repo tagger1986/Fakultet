@@ -14,21 +14,22 @@ public class TestKonekcije {
     
     public static void main(String[] args) {
         
-        Connection connection = null;
+        Connection connection;
         
         try{
-        connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "FAKULTET", "123");
-        Statement stat = null;
-        stat = connection.createStatement();
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "FAKULTET", "123");
+            Statement stat;
+            stat = connection.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM fakultet.student");
             ResultSetMetaData rsmd = rs.getMetaData();
-            System.out.println("Ukuno ima kolona:");
+            System.out.println("Ukupno ima kolona:");
             System.out.println(rsmd.getColumnCount());
             
         
-                }catch(SQLException ex){
+        }catch(SQLException ex){
                 System.out.println("Konekcija nije uspela");
                 ex.printStackTrace();
+                
        
         }
         
