@@ -2,11 +2,14 @@
 package com.in2.fakultet.prijavaispita.Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Student {
     
+    @Id
     private int id;
+    // da li treba nesto da se radi sa PK posebno?
     private int code;
     private String name;
     private String surname;
