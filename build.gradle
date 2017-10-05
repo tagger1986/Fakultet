@@ -41,4 +41,5 @@ dependencies {
     }
     
     //obratiti paznju posto se nalazi na mavenLocal 
+    //automatski se dodaje kako mu stavimo path
 }

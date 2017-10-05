@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class StudentController {
     
-    @RequestMapping("/hello")
+    @RequestMapping(value = "/hello")
     public String zdr(){
         return "zdravo";
     }
