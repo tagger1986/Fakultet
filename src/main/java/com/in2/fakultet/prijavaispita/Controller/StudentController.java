@@ -5,7 +5,6 @@ import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +43,7 @@ public class StudentController {
     public void save(@RequestBody Student student){
         studentService.save(student);
     }
-
+ 
    
     @RequestMapping (value = "/{id}", method = RequestMethod.DELETE)
     public void delete (@PathVariable("id")int id ){

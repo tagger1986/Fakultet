@@ -1,14 +1,16 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="STUDENT")
 public class Student {
     
     @Id
@@ -31,7 +33,7 @@ public class Student {
     private String description;
     @Column
     @NotNull
-    private String creationDate;
+    private Date creationDate;
     @Column
     @NotNull
     private int createdBy;
@@ -40,7 +42,7 @@ public class Student {
     private int lastUpdatedBy;
     @Column
     @NotNull
-    private String lastUpdatedDate;
+    private Date lastUpdatedDate;
     @Column
     @NotNull
     private String rowStatus;
@@ -48,20 +50,6 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id, int code, String name, String surname, String description, String creationDate, int createdBy, int lastUpdatedBy, String lastUpdatedDate, String rowStatus) {
-        this.id = id;
-        this.code = code;
-        this.name = name;
-        this.surname = surname;
-        this.description = description;
-        this.creationDate = creationDate;
-        this.createdBy = createdBy;
-        this.lastUpdatedBy = lastUpdatedBy;
-        this.lastUpdatedDate = lastUpdatedDate;
-        this.rowStatus = rowStatus;
-    }
-
-    
     public int getId() {
         return id;
     }
@@ -102,11 +90,11 @@ public class Student {
         this.description = description;
     }
 
-    public String getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(String creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -126,11 +114,11 @@ public class Student {
         this.lastUpdatedBy = lastUpdatedBy;
     }
 
-    public String getLastUpdatedDate() {
+    public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 
-    public void setLastUpdatedDate(String lastUpdatedDate) {
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
@@ -140,6 +128,15 @@ public class Student {
 
     public void setRowStatus(String rowStatus) {
         this.rowStatus = rowStatus;
+    }
+    
+    @PrePersist
+    public void prePersist() {
+       Date now = new java.sql.Date(new java.util.Date().getTime());
+        this.creationDate = now;
+        this.lastUpdatedDate = now;
+        this.createdBy = 1;
+        this.lastUpdatedBy = 1;
     }
 
     @Override
