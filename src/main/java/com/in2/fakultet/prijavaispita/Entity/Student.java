@@ -6,32 +6,43 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Student {
     
     @Id
     @Column
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @NotNull
+    
     private int id;
     // da li treba nesto da se radi sa PK posebno?
     @Column
+    @NotNull
     private int code;
     @Column
+    @NotNull
     private String name;
     @Column
+    @NotNull
     private String surname;
     @Column
+    @NotNull
     private String description;
     @Column
+    @NotNull
     private String creationDate;
     @Column
+    @NotNull
     private int createdBy;
     @Column
+    @NotNull
     private int lastUpdatedBy;
     @Column
+    @NotNull
     private String lastUpdatedDate;
     @Column
+    @NotNull
     private String rowStatus;
     
     public Student() {
