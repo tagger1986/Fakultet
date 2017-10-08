@@ -6,7 +6,6 @@ import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 
@@ -19,8 +18,6 @@ public class StudentServiceImp implements StudentService{
     public StudentServiceImp(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
-    
-    
 
     @Override
     public List<Student> getAllStudents() {
@@ -37,7 +34,6 @@ public class StudentServiceImp implements StudentService{
     @Override
     public Student save(Student student) {
         return studentRepository.save(student);
-        //NIJE RESENO
     }
 
     @Override
