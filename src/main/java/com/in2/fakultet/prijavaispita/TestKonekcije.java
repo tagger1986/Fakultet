@@ -12,9 +12,9 @@ import java.sql.Statement;
 public class TestKonekcije {
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
-        Connection connection;
+        Connection connection = null;
         
         try{
             connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "FAKULTET", "123");
@@ -31,6 +31,10 @@ public class TestKonekcije {
                 ex.printStackTrace();
                 
        
+        }finally {
+            System.out.println("Konekcija zatvorena");
+            connection.close();
+            
         }
         
         
