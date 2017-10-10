@@ -22,7 +22,7 @@ public class TestKonekcije {
             stat = connection.createStatement();
             ResultSet rs = stat.executeQuery("SELECT * FROM fakultet.student");
             ResultSetMetaData rsmd = rs.getMetaData();
-            System.out.println("Ukupno ima kolona:");
+            System.out.println("Ima ukupno kolona:");
             System.out.println(rsmd.getColumnCount());
             
         
