@@ -1,6 +1,7 @@
 
 package com.in2.fakultet.prijavaispita.Service;
 
+import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
 import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
 import java.util.ArrayList;
@@ -20,37 +21,27 @@ public class StudentServiceImp implements StudentService{
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        List<Student> studenti = new ArrayList<>();
-        studentRepository.findAll().forEach(studenti::add);
-        return studenti;
+    public List<PolozeniIspiti> getAllIspiti() {
+        List<PolozeniIspiti > ispiti = new ArrayList<>();
+        studentRepository.findAll().forEach(ispiti::add);
+        return ispiti;
     }
 
     @Override
-    public Student findById(int id) {
+    public PolozeniIspiti findById(int id) {
         return studentRepository.findOne(id);
     }
 
     @Override
-    public Student save(Student student) {
-        return studentRepository.save(student);
+    public PolozeniIspiti save(PolozeniIspiti ispit) {
+        return studentRepository.save(ispit);
     }
 
     @Override
     public void delete(int id) {
         studentRepository.delete(id);
     }
-    
-    
-    
+
+} 
 
 
-
-    
-    
-    
-    
-    
-    
-    
-}

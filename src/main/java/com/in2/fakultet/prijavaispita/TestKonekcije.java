@@ -27,7 +27,7 @@ public class TestKonekcije {
             
         
         }catch(SQLException ex){
-                System.out.println("Konekcija nije uspela");
+                System.out.println("Konekcija neuspesna");
                 ex.printStackTrace();
                 
        
