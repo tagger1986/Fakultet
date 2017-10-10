@@ -39,7 +39,7 @@ public class PolozeniIspiti {
     
     @Column
     @NotNull
-    private Date lasrUpdatedDate;
+    private Date lastUpdatedDate;
     
     @Column
     @NotNull
@@ -93,13 +93,15 @@ public class PolozeniIspiti {
         this.createdBy = createdBy;
     }
 
-    public Date getLasrUpdatedDate() {
-        return lasrUpdatedDate;
+    public Date getLastUpdatedDate() {
+        return lastUpdatedDate;
     }
 
-    public void setLasrUpdatedDate(Date lasrUpdatedDate) {
-        this.lasrUpdatedDate = lasrUpdatedDate;
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
     }
+
+    
 
     public int getLastUpdatedBy() {
         return lastUpdatedBy;
@@ -129,7 +131,7 @@ public class PolozeniIspiti {
     public String toString() {
         return "PolozeniIspiti{" + "id=" + id + ", studentId=" + studentId 
                 + ", predmetId=" + predmetId + ", creationDate=" + creationDate 
-                + ", createdBy=" + createdBy + ", lasrUpdatedDate=" + lasrUpdatedDate 
+                + ", createdBy=" + createdBy + ", lasrUpdatedDate=" + lastUpdatedDate 
                 + ", lastUpdatedBy=" + lastUpdatedBy + ", rowStatus=" + rowStatus 
                 + ", grade=" + grade + '}';
     }
