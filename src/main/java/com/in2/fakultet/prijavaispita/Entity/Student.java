@@ -46,8 +46,6 @@ public class Student {
     @NotNull
     private String rowStatus;
     
-    public Student() {
-    }
 
     public int getId() {
         return id;
