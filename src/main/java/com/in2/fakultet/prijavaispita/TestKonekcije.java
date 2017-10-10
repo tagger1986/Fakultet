@@ -20,7 +20,7 @@ public class TestKonekcije {
             connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "FAKULTET", "123");
             Statement stat;
             stat = connection.createStatement();
-            ResultSet rs = stat.executeQuery("SELECT * FROM fakultet.student");
+            ResultSet rs = stat.executeQuery("SELECT * FROM fakultet.polozeni_ispiti");
             ResultSetMetaData rsmd = rs.getMetaData();
             System.out.println("Ukupno ima kolona:");
             System.out.println(rsmd.getColumnCount());
