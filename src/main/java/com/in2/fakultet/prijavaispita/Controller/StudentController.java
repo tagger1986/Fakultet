@@ -1,6 +1,7 @@
 
 package com.in2.fakultet.prijavaispita.Controller;
 
+import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
 import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.Collection;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/ispit")
 public class StudentController {
     
     private StudentService studentService;
@@ -29,19 +30,19 @@ public class StudentController {
     }
     
     @RequestMapping(method = RequestMethod.GET) 
-    public Collection<Student> getAllStudents() {
-        return studentService.getAllStudents();
+    public Collection<PolozeniIspiti> getAllIspiti() {
+        return studentService.getAllIspiti();
     }
     
     @RequestMapping (value = "/{id}", method = RequestMethod.GET)
-    public Student findById (@PathVariable("id")int id ){
+    public PolozeniIspiti findById (@PathVariable("id")int id ){
         return studentService.findById(id);
     }
     
     
     @RequestMapping (method = RequestMethod.POST)
-    public void save(@RequestBody Student student){
-        studentService.save(student);
+    public void save(@RequestBody PolozeniIspiti ispit){
+        studentService.save(ispit);
     }
  
    

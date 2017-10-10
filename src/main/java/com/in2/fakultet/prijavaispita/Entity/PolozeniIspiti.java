@@ -9,6 +9,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -39,7 +40,7 @@ public class PolozeniIspiti {
     
     @Column
     @NotNull
-    private Date lasrUpdatedDate;
+    private Date lastUpdatedDate;
     
     @Column
     @NotNull
@@ -94,11 +95,11 @@ public class PolozeniIspiti {
     }
 
     public Date getLasrUpdatedDate() {
-        return lasrUpdatedDate;
+        return lastUpdatedDate;
     }
 
     public void setLasrUpdatedDate(Date lasrUpdatedDate) {
-        this.lasrUpdatedDate = lasrUpdatedDate;
+        this.lastUpdatedDate = lasrUpdatedDate;
     }
 
     public int getLastUpdatedBy() {
@@ -125,11 +126,26 @@ public class PolozeniIspiti {
         this.grade = grade;
     }
 
+    
+        @PrePersist
+    public void prePersist() {
+       Date now = new java.sql.Date(new java.util.Date().getTime());
+        this.creationDate = now;
+        this.lastUpdatedDate = now;
+        this.createdBy = 1;
+        this.lastUpdatedBy = 1;
+    }
+    
+    
+    
+    
+    
+    
     @Override
     public String toString() {
         return "PolozeniIspiti{" + "id=" + id + ", studentId=" + studentId 
                 + ", predmetId=" + predmetId + ", creationDate=" + creationDate 
-                + ", createdBy=" + createdBy + ", lasrUpdatedDate=" + lasrUpdatedDate 
+                + ", createdBy=" + createdBy + ", lasrUpdatedDate=" + lastUpdatedDate 
                 + ", lastUpdatedBy=" + lastUpdatedBy + ", rowStatus=" + rowStatus 
                 + ", grade=" + grade + '}';
     }
