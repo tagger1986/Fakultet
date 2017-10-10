@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="POLOZENI_ISPIT")
+@Table(name="STUDENT")
 public class Student {
     
     @Id
