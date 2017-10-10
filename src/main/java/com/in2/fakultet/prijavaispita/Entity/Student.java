@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -16,7 +17,8 @@ public class Student {
     @Id
     @Column
     @NotNull
-     private int id;
+    @OrderBy
+    private int studentId;
     // da li treba nesto da se radi sa PK posebno?
     @Column
     @NotNull
@@ -48,11 +50,11 @@ public class Student {
     
 
     public int getId() {
-        return id;
+        return studentId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.studentId = id;
     }
 
     public int getCode() {
@@ -138,7 +140,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", code=" + code + ", name=" + name
+        return "Student{" + "id=" + studentId + ", code=" + code + ", name=" + name
                 + ", surname=" + surname + ", description=" + description + ", creationDate=" + creationDate 
                 + ", createdBy=" + createdBy + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate 
                 + ", rowStatus=" + rowStatus + '}';
