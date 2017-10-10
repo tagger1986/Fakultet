@@ -45,6 +45,9 @@ public class Student {
     @Column
     @NotNull
     private String rowStatus;
+
+    public Student() {
+    }
     
 
     public int getId() {
