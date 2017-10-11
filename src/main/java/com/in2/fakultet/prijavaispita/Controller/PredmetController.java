@@ -1,9 +1,7 @@
 package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.Predmet;
-import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.PredmetService;
-import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
