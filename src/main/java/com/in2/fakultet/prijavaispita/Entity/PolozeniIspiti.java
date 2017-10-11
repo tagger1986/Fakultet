@@ -5,10 +5,15 @@
  */
 package com.in2.fakultet.prijavaispita.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,15 +25,18 @@ public class PolozeniIspiti {
     @Id
     @Column
     @NotNull
+    @GeneratedValue
     private int id;
     
-    @Column
-    @NotNull
-    private int studentId;
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "student_id")
+    private Student sid;
     
-    @Column
-    @NotNull
-    private int predmetId;
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "predmet_id")
+    private Predmet pid;
     
     @Column
     @NotNull
@@ -54,6 +62,11 @@ public class PolozeniIspiti {
     @NotNull
     private int grade;
 
+    public PolozeniIspiti() {
+    }
+    
+    
+
     public int getId() {
         return id;
     }
@@ -62,20 +75,20 @@ public class PolozeniIspiti {
         this.id = id;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public Student getStudentId() {
+        return sid;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setStudentId(Student sid) {
+        this.sid = sid;
     }
 
-    public int getPredmetId() {
-        return predmetId;
+    public Predmet getPredmetId() {
+        return pid;
     }
 
-    public void setPredmetId(int predmetId) {
-        this.predmetId = predmetId;
+    public void setPredmetId(Predmet predmet) {
+        this.pid = pid;
     }
 
     public Date getCreationDate() {
@@ -127,7 +140,7 @@ public class PolozeniIspiti {
     }
 
     
-        @PrePersist
+    @PrePersist
     public void prePersist() {
        Date now = new java.sql.Date(new java.util.Date().getTime());
         this.creationDate = now;
@@ -135,20 +148,21 @@ public class PolozeniIspiti {
         this.createdBy = 1;
         this.lastUpdatedBy = 1;
     }
-    
-    
-    
-    
-    
-    
+
     @Override
     public String toString() {
-        return "PolozeniIspiti{" + "id=" + id + ", studentId=" + studentId 
-                + ", predmetId=" + predmetId + ", creationDate=" + creationDate 
-                + ", createdBy=" + createdBy + ", lasrUpdatedDate=" + lastUpdatedDate 
-                + ", lastUpdatedBy=" + lastUpdatedBy + ", rowStatus=" + rowStatus 
-                + ", grade=" + grade + '}';
+        return "PolozeniIspiti{" + "id=" + id + ", studentId=" + sid 
+                + ", predmetId=" + pid + ", creationDate=" + creationDate + ", createdBy=" 
+                + createdBy + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
+                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade + '}';
     }
+    
+    
+    
+    
+    
+    
+
 
     
 

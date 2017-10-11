@@ -1,15 +1,18 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -50,7 +53,26 @@ public class Student {
     @NotNull
     private String rowStatus;
     
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sid")
+    @JsonManagedReference
+    private List<PolozeniIspiti> ispitivani = new ArrayList<>();
 
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public List<PolozeniIspiti> getIspiti1() {
+        return ispitivani;
+    }
+
+    public void setIspiti1(List<PolozeniIspiti> ispitivani) {
+        this.ispitivani = ispitivani;
+    }
+    
     public int getId() {
         return studentId;
     }
@@ -142,14 +164,18 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + studentId + ", code=" + code + ", name=" + name
-                + ", surname=" + surname + ", description=" + description + ", creationDate=" + creationDate 
-                + ", createdBy=" + createdBy + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate 
-                + ", rowStatus=" + rowStatus + '}';
+        return "Student{" + "studentId=" + studentId + ", code=" + code 
+                + ", name=" + name + ", surname=" + surname + ", description=" 
+                + description + ", creationDate=" + creationDate + ", createdBy=" 
+                + createdBy + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" 
+                + lastUpdatedDate + ", rowStatus=" + rowStatus + '}';
+    }
+
+    public Student() {
     }
     
     
-    
-    
+
+
     
 }
