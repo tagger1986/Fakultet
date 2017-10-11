@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/report")
-public class PolozeniIspitiController {
+public class PolozeniIspitiController{
     
     private PolozeniIspitiService polozeniIspitiService;
 
@@ -43,7 +43,7 @@ public class PolozeniIspitiController {
     }
         
 
-    @RequestMapping (value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping (value = "izv/{id}", method = RequestMethod.GET)
     public PolozeniIspiti findById (@PathVariable("id")int id ){
         return polozeniIspitiService.findById(id);
     }

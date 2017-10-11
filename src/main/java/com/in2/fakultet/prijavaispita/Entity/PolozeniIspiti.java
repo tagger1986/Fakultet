@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.in2.fakultet.prijavaispita.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import javax.persistence.Column;
@@ -18,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import org.aspectj.apache.bcel.Constants;
 
 @Entity
 @Table(name="POLOZENI_ISPITI")
@@ -109,12 +103,12 @@ public class PolozeniIspiti {
         this.createdBy = createdBy;
     }
 
-    public Date getLasrUpdatedDate() {
+    public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 
-    public void setLasrUpdatedDate(Date lasrUpdatedDate) {
-        this.lastUpdatedDate = lasrUpdatedDate;
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
     }
 
     public int getLastUpdatedBy() {
@@ -149,6 +143,14 @@ public class PolozeniIspiti {
         this.lastUpdatedDate = now;
         this.createdBy = 1;
         this.lastUpdatedBy = 1;
+    }
+
+    @Override
+    public String toString() {
+        return "PolozeniIspiti{" + "id=" + id + ", sid=" + sid + ", pid=" + pid 
+                + ", creationDate=" + creationDate + ", createdBy=" + createdBy 
+                + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
+                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade + '}';
     }
 
 
