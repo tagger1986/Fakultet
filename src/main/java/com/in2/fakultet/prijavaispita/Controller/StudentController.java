@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
+import java.util.Set;
 
 
 /**
@@ -28,7 +29,7 @@ public class StudentController {
     }
     
     @RequestMapping(method = RequestMethod.GET) 
-    public Collection<Student> getAllStudents() {
+    public Set<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
     

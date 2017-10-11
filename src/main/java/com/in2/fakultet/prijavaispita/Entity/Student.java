@@ -4,7 +4,9 @@ package com.in2.fakultet.prijavaispita.Entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,7 +24,6 @@ public class Student {
     @Id
     @Column
     @NotNull
-    @OrderBy
     private int studentId;
     // da li treba nesto da se radi sa PK posebno?
     @Column
@@ -54,8 +55,7 @@ public class Student {
     private String rowStatus;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sid")
-    @JsonManagedReference
-    private List<PolozeniIspiti> ispitivani = new ArrayList<>();
+    private Set<PolozeniIspiti> ispitivani = new HashSet<>();
 
     public int getStudentId() {
         return studentId;
@@ -65,11 +65,11 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public List<PolozeniIspiti> getIspiti1() {
+    public Set<PolozeniIspiti> getIspiti1() {
         return ispitivani;
     }
 
-    public void setIspiti1(List<PolozeniIspiti> ispitivani) {
+    public void setIspiti1(Set<PolozeniIspiti> ispitivani) {
         this.ispitivani = ispitivani;
     }
     

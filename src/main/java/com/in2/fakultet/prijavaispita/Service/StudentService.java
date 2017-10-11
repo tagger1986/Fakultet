@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public interface StudentService {
     
-     public Collection<Student> getAllStudents();
+     public Set<Student> getAllStudents();
      public Student findById(int id);
      public Student save(Student student);
      public void delete(int id);

@@ -3,7 +3,9 @@ package com.in2.fakultet.prijavaispita.Entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,8 +35,7 @@ public class Predmet {
     private String predmet;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pid")
-    @JsonManagedReference
-    private List<PolozeniIspiti> ispiti = new ArrayList<>();
+    private Set<PolozeniIspiti> ispiti = new HashSet<>();
 
     public int getPredmetId() {
         return predmetId;
@@ -52,11 +53,11 @@ public class Predmet {
         this.predmet = predmet;
     }
 
-    public List<PolozeniIspiti> getIspiti() {
+    public Set<PolozeniIspiti> getIspiti() {
         return ispiti;
     }
 
-    public void setIspiti(List<PolozeniIspiti> ispiti) {
+    public void setIspiti(Set<PolozeniIspiti> ispiti) {
         this.ispiti = ispiti;
     }
 

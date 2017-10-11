@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public interface PredmetService {
     
-     public Collection<Predmet> getAllPredmeti();
+     public Set<Predmet> getAllPredmeti();
      public Predmet findById(int id);
      public Predmet save(Predmet predmet);
      public void delete(int id);

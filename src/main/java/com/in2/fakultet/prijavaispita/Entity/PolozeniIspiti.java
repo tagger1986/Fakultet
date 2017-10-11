@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import org.aspectj.apache.bcel.Constants;
 
 @Entity
 @Table(name="POLOZENI_ISPITI")

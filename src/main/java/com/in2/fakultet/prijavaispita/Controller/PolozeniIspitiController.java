@@ -8,6 +8,7 @@ import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,7 @@ public class PolozeniIspitiController {
     
     
     @RequestMapping(method = RequestMethod.GET) 
-    public Collection<PolozeniIspiti> getAllPolozeniIspiti() {
+    public Set<PolozeniIspiti>getAllPolozeniIspiti() {
         return polozeniIspitiService.getAllPolozeniIspiti();
     }
         

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.in2.fakultet.prijavaispita.Repository.PolozeniIspitiRepository;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Service
@@ -21,8 +23,8 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
     }
 
     @Override
-    public Collection<PolozeniIspiti> getAllPolozeniIspiti() {
-        Collection<PolozeniIspiti > ispiti = new ArrayList<>();
+    public Set<PolozeniIspiti> getAllPolozeniIspiti() {
+        Set<PolozeniIspiti > ispiti = new HashSet<>();
         prijavaIspitaRepository.findAll().forEach(ispiti::add);
         return ispiti;
     }

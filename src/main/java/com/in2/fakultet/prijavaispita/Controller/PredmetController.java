@@ -3,6 +3,7 @@ package com.in2.fakultet.prijavaispita.Controller;
 import com.in2.fakultet.prijavaispita.Entity.Predmet;
 import com.in2.fakultet.prijavaispita.Service.PredmetService;
 import java.util.Collection;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +29,7 @@ public class PredmetController {
     }
     
     @RequestMapping(method = RequestMethod.GET) 
-    public Collection<Predmet> getAllPredmeti() {
+    public Set<Predmet> getAllPredmeti() {
         return predmetService.getAllPredmeti();
     }
     
