@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PolozeniIspitiRepository extends CrudRepository<PolozeniIspiti, Serializable>{
+public interface PolozeniIspitiRepository extends CrudRepository<PolozeniIspiti, Integer>{
 
 
   

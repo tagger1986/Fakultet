@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * @author nosto
  */
 @Repository
-public interface PredmetRepository extends CrudRepository<Predmet, Serializable> {
+public interface PredmetRepository extends CrudRepository<Predmet, Integer> {
     
 }

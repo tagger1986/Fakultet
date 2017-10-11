@@ -37,7 +37,7 @@ public class PolozeniIspitiController {
     }
     
     
-    @RequestMapping(method = RequestMethod.GET) 
+    @RequestMapping(value = "/izv",method = RequestMethod.GET) 
     public Set<PolozeniIspiti>getAllPolozeniIspiti() {
         return polozeniIspitiService.getAllPolozeniIspiti();
     }

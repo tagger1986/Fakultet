@@ -1,6 +1,8 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,6 +36,7 @@ public class Predmet {
     @NotNull
     private String predmet;
     
+    @JsonBackReference 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pid")
     private Set<PolozeniIspiti> ispiti = new HashSet<>();
 
@@ -61,10 +64,7 @@ public class Predmet {
         this.ispiti = ispiti;
     }
 
-    @Override
-    public String toString() {
-        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" + predmet + ", ispiti=" + ispiti + '}';
-    }
+  
 
     public Predmet() {
     }

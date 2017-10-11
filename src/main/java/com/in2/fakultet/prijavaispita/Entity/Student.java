@@ -1,6 +1,8 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="STUDENT")
-public class Student {
+public class Student  {
     
     @Id
     @Column
@@ -54,6 +56,7 @@ public class Student {
     @NotNull
     private String rowStatus;
     
+    @JsonBackReference 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sid")
     private Set<PolozeniIspiti> ispitivani = new HashSet<>();
 
@@ -65,13 +68,15 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public Set<PolozeniIspiti> getIspiti1() {
+    public Set<PolozeniIspiti> getIspitivani() {
         return ispitivani;
     }
 
-    public void setIspiti1(Set<PolozeniIspiti> ispitivani) {
+    public void setIspitivani(Set<PolozeniIspiti> ispitivani) {
         this.ispitivani = ispitivani;
     }
+
+
     
     public int getId() {
         return studentId;
@@ -162,14 +167,7 @@ public class Student {
         this.lastUpdatedBy = 1;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" + "studentId=" + studentId + ", code=" + code 
-                + ", name=" + name + ", surname=" + surname + ", description=" 
-                + description + ", creationDate=" + creationDate + ", createdBy=" 
-                + createdBy + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" 
-                + lastUpdatedDate + ", rowStatus=" + rowStatus + '}';
-    }
+ 
 
     public Student() {
     }

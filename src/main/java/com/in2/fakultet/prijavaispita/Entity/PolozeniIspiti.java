@@ -6,6 +6,8 @@
 package com.in2.fakultet.prijavaispita.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,12 +31,12 @@ public class PolozeniIspiti {
     private int id;
     
     @ManyToOne
-    @JsonBackReference
+    @JsonManagedReference
     @JoinColumn(name = "student_id")
     private Student sid;
     
     @ManyToOne
-    @JsonBackReference
+    @JsonManagedReference
     @JoinColumn(name = "predmet_id")
     private Predmet pid;
     
@@ -149,14 +151,7 @@ public class PolozeniIspiti {
         this.lastUpdatedBy = 1;
     }
 
-    @Override
-    public String toString() {
-        return "PolozeniIspiti{" + "id=" + id + ", studentId=" + sid 
-                + ", predmetId=" + pid + ", creationDate=" + creationDate + ", createdBy=" 
-                + createdBy + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
-                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade + '}';
-    }
-    
+
     
     
     
