@@ -1,11 +1,15 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -17,17 +21,20 @@ import javax.validation.constraints.NotNull;
     
 @Entity    
 @Table(name="PREDMET")
-//@OrderBy("lastname ASC")
 public class Predmet {
     
     @Id
     @Column
+    @GeneratedValue
     @NotNull
     private int predmetId;
     @Column
     @NotNull
-//    @OneToMany
     private String predmet;
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pid")
+    @JsonManagedReference
+    private List<PolozeniIspiti> ispiti = new ArrayList<>();
 
     public int getPredmetId() {
         return predmetId;
@@ -45,9 +52,24 @@ public class Predmet {
         this.predmet = predmet;
     }
 
+    public List<PolozeniIspiti> getIspiti() {
+        return ispiti;
+    }
+
+    public void setIspiti(List<PolozeniIspiti> ispiti) {
+        this.ispiti = ispiti;
+    }
+
     @Override
     public String toString() {
-        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" + predmet + '}';
+        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" + predmet + ", ispiti=" + ispiti + '}';
     }
+
+    public Predmet() {
+    }
+   
+    
+
+
 
 }
