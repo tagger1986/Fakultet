@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RestController
 @RequestMapping("/report")
-public class PolozeniIspitiController{
+public class ReportController{
     @Autowired
     private PolozeniIspitiService polozeniIspitiService;
 //    @Autowired
@@ -33,15 +33,15 @@ public class PolozeniIspitiController{
     
 
     @Autowired  //spring boot kreira i inject u controller
-    public PolozeniIspitiController(PolozeniIspitiService polozeniIspitiService) {
+    public ReportController(PolozeniIspitiService polozeniIspitiService) {
         this.polozeniIspitiService = polozeniIspitiService;
     }
 //    @Autowired
-//    public PolozeniIspitiController(PredmetService predmetService) {
+//    public ReportController(PredmetService predmetService) {
 //        this.predmetService = predmetService;
 //    }
 //    @Autowired
-//    public PolozeniIspitiController(StudentService studentService) {
+//    public ReportController(StudentService studentService) {
 //        this.studentService = studentService;
 //    }
     
@@ -57,8 +57,8 @@ public class PolozeniIspitiController{
         
 
     @RequestMapping (value = "izv/{id}", method = RequestMethod.GET)
-    public PolozeniIspiti findById (@PathVariable("id")int id ){
-        return polozeniIspitiService.findById(id);
+    public List<PolozeniIspiti> findById (@PathVariable("id")int id ){
+        return polozeniIspitiService.getAllByStudent(id);
     }
     
     

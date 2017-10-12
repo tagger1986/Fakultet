@@ -1,5 +1,6 @@
 package com.in2.fakultet.prijavaispita.Service;
 
+import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
 import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
 import java.util.ArrayList;
@@ -44,7 +45,16 @@ public class StudentServiceImp implements StudentService{
     public void delete(int id) {
         studentRepository.delete(id);
     }
-    
-    
 
+    @Override
+    public List<Student> getStudentById(int id) {
+        List<Student> studenti = new ArrayList<>();
+        studenti = getAllStudents();
+        for (Student student : studenti) {
+            if (studentRepository.exists(id)) {
+                studenti.add(student);
+            }
+        }
+        return studenti;
+    }
 }  

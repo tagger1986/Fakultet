@@ -39,6 +39,11 @@ public class StudentController {
         return studentService.findById(id);
     }
     
+    @RequestMapping (value = "svi/{id}", method = RequestMethod.GET)
+    public List<Student> getStudentById (@PathVariable("id")int id ){
+        return studentService.getStudentById(id);
+    }
+    
     
     @RequestMapping (method = RequestMethod.POST)
     public void save(@RequestBody Student student){

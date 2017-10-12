@@ -12,6 +12,7 @@ import java.util.Set;
 public interface StudentService {
     
      public List<Student> getAllStudents();
+     public List<Student> getStudentById(int id);
      public Student findById(int id);
      public Student save(Student student);
      public void delete(int id);

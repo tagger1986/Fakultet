@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.in2.fakultet.prijavaispita.Repository.PolozeniIspitiRepository;
 import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,7 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
     public List<PolozeniIspiti> getAllPolozeniIspiti() {
         List<PolozeniIspiti> ispiti = new ArrayList<>();
         polozeniIspitiRepository.findAll().forEach(ispiti::add);
+        ispiti.sort(Comparator.comparing((id) -> id.getId()));
         return ispiti;
     }
     
@@ -46,24 +48,32 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
     public void delete(int id) {
         polozeniIspitiRepository.delete(id);
     }
+    
+    
 
     @Override
     public List<PolozeniIspiti> getAllByStudent(int id) {
         List<PolozeniIspiti> ispiti = new ArrayList<>();
-        ispiti= studentRepository.findOne(id).getIspitivani();
+        if (studentRepository.exists(id)) {
+            polozeniIspitiRepository.findAll().forEach(ispiti::add);
+        }
         return ispiti;
        }
+    
+    
+    
+    
 
 //     public Set<PolozeniIspiti> findAll() {
 //        return polozeniIspitiRepository.findAll());
 //    }
-
-    private Sort sortByNameDesc() {
-        return new Sort(Sort.Direction.DESC, "name");
-    }
-    private Sort sortByGradeAsc() {
-        return new Sort(Sort.Direction.ASC, "grade");
-    }
+//
+//    private Sort sortByNameDesc() {
+//        return new Sort(Sort.Direction.DESC, "name");
+//    }
+//    private Sort sortByGradeAsc() {
+//        return new Sort(Sort.Direction.ASC, "grade");
+//    }
 
     
 

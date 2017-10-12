@@ -79,45 +79,45 @@ public class PolozeniIspiti {
         this.id = id;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getLastUpdatedDate() {
-        return lastUpdatedDate;
-    }
-
-    public void setLastUpdatedDate(Date lastUpdatedDate) {
-        this.lastUpdatedDate = lastUpdatedDate;
-    }
-
-    public int getLastUpdatedBy() {
-        return lastUpdatedBy;
-    }
-
-    public void setLastUpdatedBy(int lastUpdatedBy) {
-        this.lastUpdatedBy = lastUpdatedBy;
-    }
-
-    public String getRowStatus() {
-        return rowStatus;
-    }
-
-    public void setRowStatus(String rowStatus) {
-        this.rowStatus = rowStatus;
-    }
+//    public Date getCreationDate() {
+//        return creationDate;
+//    }
+//
+//    public void setCreationDate(Date creationDate) {
+//        this.creationDate = creationDate;
+//    }
+//
+//    public int getCreatedBy() {
+//        return createdBy;
+//    }
+//
+//    public void setCreatedBy(int createdBy) {
+//        this.createdBy = createdBy;
+//    }
+//
+//    public Date getLastUpdatedDate() {
+//        return lastUpdatedDate;
+//    }
+//
+//    public void setLastUpdatedDate(Date lastUpdatedDate) {
+//        this.lastUpdatedDate = lastUpdatedDate;
+//    }
+//
+//    public int getLastUpdatedBy() {
+//        return lastUpdatedBy;
+//    }
+//
+//    public void setLastUpdatedBy(int lastUpdatedBy) {
+//        this.lastUpdatedBy = lastUpdatedBy;
+//    }
+//
+//    public String getRowStatus() {
+//        return rowStatus;
+//    }
+//
+//    public void setRowStatus(String rowStatus) {
+//        this.rowStatus = rowStatus;
+//    }
 
     public int getGrade() {
         return grade;
@@ -138,29 +138,29 @@ public class PolozeniIspiti {
     
     
 
-    
-    @PrePersist
-    public void prePersist() {
-       Date now = new java.sql.Date(new java.util.Date().getTime());
-        this.creationDate = now;
-        this.lastUpdatedDate = now;
-        this.createdBy = 1;
-        this.lastUpdatedBy = 1;
-    }
-
-    @Override
-    public String toString() {
-        return "PolozeniIspiti{" + "id=" + id + ", sid=" + sid + ", pid=" + pid 
-                + ", creationDate=" + creationDate + ", createdBy=" + createdBy 
-                + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
-                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade 
-                + ", datumPolaganja=" + datumPolaganja + '}';
-    }
-
-
-    
-    
-    
+//    
+//    @PrePersist
+//    public void prePersist() {
+//       Date now = new java.sql.Date(new java.util.Date().getTime());
+//        this.creationDate = now;
+//        this.lastUpdatedDate = now;
+//        this.createdBy = 1;
+//        this.lastUpdatedBy = 1;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "PolozeniIspiti{" + "id=" + id + ", sid=" + sid + ", pid=" + pid 
+//                + ", creationDate=" + creationDate + ", createdBy=" + createdBy 
+//                + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
+//                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade 
+//                + ", datumPolaganja=" + datumPolaganja + '}';
+//    }
+//
+//
+//    
+//    
+//    
     
     
 

@@ -16,5 +16,6 @@ public interface PolozeniIspitiService  {
      public PolozeniIspiti findById(int id);
      public PolozeniIspiti save(PolozeniIspiti ispit);
      public void delete(int id);
+     
 
 }

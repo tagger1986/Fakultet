@@ -36,13 +36,13 @@ public class Predmet {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pid")
     private List<PolozeniIspiti> ispiti = new ArrayList<>();
 
-    public int getPredmetId() {
-        return predmetId;
-    }
-
-    public void setPredmetId(int predmetId) {
-        this.predmetId = predmetId;
-    }
+//    public int getPredmetId() {
+//        return predmetId;
+//    }
+//
+//    public void setPredmetId(int predmetId) {
+//        this.predmetId = predmetId;
+//    }
 
     public String getPredmet() {
         return predmet;
@@ -62,15 +62,15 @@ public class Predmet {
 
   
 
-    public Predmet() {
-    }
-
-    @Override
-    public String toString() {
-        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" + predmet + ", ispiti=" + ispiti + '}';
-    }
-   
-    
+//    public Predmet() {
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" + predmet + ", ispiti=" + ispiti + '}';
+//    }
+//   
+//    
 
 
 
