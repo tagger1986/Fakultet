@@ -60,6 +60,13 @@ public class PolozeniIspiti {
     @NotNull
     @OrderBy()
     private int grade;
+    
+    @Column
+    @NotNull
+    @OrderBy
+    private Date datumPolaganja;
+    
+    
 
     public PolozeniIspiti() {
     }
@@ -120,6 +127,17 @@ public class PolozeniIspiti {
         this.grade = grade;
     }
 
+    public Date getDatumPolaganja() {
+        return datumPolaganja;
+    }
+
+    public void setDatumPolaganja(Date datumPolaganja) {
+        this.datumPolaganja = datumPolaganja;
+    }
+    
+    
+    
+
     
     @PrePersist
     public void prePersist() {
@@ -135,7 +153,8 @@ public class PolozeniIspiti {
         return "PolozeniIspiti{" + "id=" + id + ", sid=" + sid + ", pid=" + pid 
                 + ", creationDate=" + creationDate + ", createdBy=" + createdBy 
                 + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
-                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade + '}';
+                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade 
+                + ", datumPolaganja=" + datumPolaganja + '}';
     }
 
 
