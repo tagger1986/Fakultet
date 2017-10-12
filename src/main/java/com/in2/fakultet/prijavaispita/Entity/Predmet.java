@@ -1,7 +1,7 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -32,8 +32,8 @@ public class Predmet {
     @NotNull
     private String predmet;
     
+    @JsonBackReference 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pid")
-    @JsonManagedReference
     private List<PolozeniIspiti> ispiti = new ArrayList<>();
 
     public int getPredmetId() {
@@ -60,12 +60,14 @@ public class Predmet {
         this.ispiti = ispiti;
     }
 
+  
+
+    public Predmet() {
+    }
+
     @Override
     public String toString() {
         return "Predmet{" + "predmetId=" + predmetId + ", predmet=" + predmet + ", ispiti=" + ispiti + '}';
-    }
-
-    public Predmet() {
     }
    
     

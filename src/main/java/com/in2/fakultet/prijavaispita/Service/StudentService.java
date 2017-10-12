@@ -2,7 +2,6 @@
 package com.in2.fakultet.prijavaispita.Service;
 
 import com.in2.fakultet.prijavaispita.Entity.Student;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -12,7 +11,7 @@ import java.util.Set;
  */
 public interface StudentService {
     
-     public Collection<Student> getAllStudents();
+     public List<Student> getAllStudents();
      public Student findById(int id);
      public Student save(Student student);
      public void delete(int id);

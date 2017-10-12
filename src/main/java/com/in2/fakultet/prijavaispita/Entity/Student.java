@@ -1,10 +1,14 @@
 
 package com.in2.fakultet.prijavaispita.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,12 +21,11 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="STUDENT")
-public class Student {
+public class Student  {
     
     @Id
     @Column
     @NotNull
-    @OrderBy
     private int studentId;
     // da li treba nesto da se radi sa PK posebno?
     @Column
@@ -53,8 +56,8 @@ public class Student {
     @NotNull
     private String rowStatus;
     
+    @JsonBackReference 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sid")
-    @JsonManagedReference
     private List<PolozeniIspiti> ispitivani = new ArrayList<>();
 
     public int getStudentId() {
@@ -65,13 +68,15 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public List<PolozeniIspiti> getIspiti1() {
+    public List<PolozeniIspiti> getIspitivani() {
         return ispitivani;
     }
 
-    public void setIspiti1(List<PolozeniIspiti> ispitivani) {
+    public void setIspitivani(List<PolozeniIspiti> ispitivani) {
         this.ispitivani = ispitivani;
     }
+
+
     
     public int getId() {
         return studentId;
@@ -162,20 +167,10 @@ public class Student {
         this.lastUpdatedBy = 1;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" + "studentId=" + studentId + ", code=" + code 
-                + ", name=" + name + ", surname=" + surname + ", description=" 
-                + description + ", creationDate=" + creationDate + ", createdBy=" 
-                + createdBy + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" 
-                + lastUpdatedDate + ", rowStatus=" + rowStatus + '}';
-    }
+ 
 
     public Student() {
     }
-    
-    
-
 
     
 }

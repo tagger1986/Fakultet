@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.in2.fakultet.prijavaispita.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -25,15 +23,16 @@ public class PolozeniIspiti {
     @Column
     @NotNull
     @GeneratedValue
+//    @OrderBy
     private int id;
     
     @ManyToOne
-    @JsonBackReference
+    @JsonManagedReference
     @JoinColumn(name = "student_id")
     private Student sid;
     
     @ManyToOne
-    @JsonBackReference
+    @JsonManagedReference
     @JoinColumn(name = "predmet_id")
     private Predmet pid;
     
@@ -59,35 +58,25 @@ public class PolozeniIspiti {
     
     @Column
     @NotNull
+//    @OrderBy()
     private int grade;
+    
+    @Column
+    @NotNull
+//    @OrderBy
+    private Date datumPolaganja;
+    
+    
 
     public PolozeniIspiti() {
     }
     
-    
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Student getStudentId() {
-        return sid;
-    }
-
-    public void setStudentId(Student sid) {
-        this.sid = sid;
-    }
-
-    public Predmet getPredmetId() {
-        return pid;
-    }
-
-    public void setPredmetId(Predmet predmet) {
-        this.pid = pid;
     }
 
     public Date getCreationDate() {
@@ -106,12 +95,12 @@ public class PolozeniIspiti {
         this.createdBy = createdBy;
     }
 
-    public Date getLasrUpdatedDate() {
+    public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 
-    public void setLasrUpdatedDate(Date lasrUpdatedDate) {
-        this.lastUpdatedDate = lasrUpdatedDate;
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
     }
 
     public int getLastUpdatedBy() {
@@ -138,6 +127,17 @@ public class PolozeniIspiti {
         this.grade = grade;
     }
 
+    public Date getDatumPolaganja() {
+        return datumPolaganja;
+    }
+
+    public void setDatumPolaganja(Date datumPolaganja) {
+        this.datumPolaganja = datumPolaganja;
+    }
+    
+    
+    
+
     
     @PrePersist
     public void prePersist() {
@@ -150,12 +150,14 @@ public class PolozeniIspiti {
 
     @Override
     public String toString() {
-        return "PolozeniIspiti{" + "id=" + id + ", studentId=" + sid 
-                + ", predmetId=" + pid + ", creationDate=" + creationDate + ", createdBy=" 
-                + createdBy + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
-                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade + '}';
+        return "PolozeniIspiti{" + "id=" + id + ", sid=" + sid + ", pid=" + pid 
+                + ", creationDate=" + creationDate + ", createdBy=" + createdBy 
+                + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
+                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade 
+                + ", datumPolaganja=" + datumPolaganja + '}';
     }
-    
+
+
     
     
     

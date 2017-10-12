@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PolozeniIspitiRepository extends CrudRepository<PolozeniIspiti, Serializable>{
 
+ 
 
-  
 }
