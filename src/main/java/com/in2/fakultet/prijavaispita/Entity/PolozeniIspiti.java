@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -22,6 +23,7 @@ public class PolozeniIspiti {
     @Column
     @NotNull
     @GeneratedValue
+    @OrderBy
     private int id;
     
     @ManyToOne
@@ -56,35 +58,18 @@ public class PolozeniIspiti {
     
     @Column
     @NotNull
+    @OrderBy()
     private int grade;
 
     public PolozeniIspiti() {
     }
     
-    
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Student getStudentId() {
-        return sid;
-    }
-
-    public void setStudentId(Student sid) {
-        this.sid = sid;
-    }
-
-    public Predmet getPredmetId() {
-        return pid;
-    }
-
-    public void setPredmetId(Predmet predmet) {
-        this.pid = pid;
     }
 
     public Date getCreationDate() {

@@ -2,14 +2,10 @@
 package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
-import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
-import com.in2.fakultet.prijavaispita.Service.StudentService;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,12 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author nosto
  */
-
+@Controller
 @RestController
 @RequestMapping("/report")
 public class PolozeniIspitiController{
-    
+    @Autowired
     private PolozeniIspitiService polozeniIspitiService;
+//    @Autowired
+//    private PredmetService predmetService;
+//    @Autowired
+//    private StudentService studentService;
 
     
    //ovo polje ima ref ka objektu koji implementira taj interface kad okinemo bilo koji kontroler
@@ -35,6 +35,18 @@ public class PolozeniIspitiController{
     public PolozeniIspitiController(PolozeniIspitiService polozeniIspitiService) {
         this.polozeniIspitiService = polozeniIspitiService;
     }
+//    @Autowired
+//    public PolozeniIspitiController(PredmetService predmetService) {
+//        this.predmetService = predmetService;
+//    }
+//    @Autowired
+//    public PolozeniIspitiController(StudentService studentService) {
+//        this.studentService = studentService;
+//    }
+    
+    
+    
+    
     
     
     @RequestMapping(value = "/izv",method = RequestMethod.GET) 

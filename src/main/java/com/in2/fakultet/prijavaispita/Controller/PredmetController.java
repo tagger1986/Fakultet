@@ -2,7 +2,6 @@ package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.Predmet;
 import com.in2.fakultet.prijavaispita.Service.PredmetService;
-import java.util.Collection;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +26,7 @@ public class PredmetController {
     public PredmetController(PredmetService predmetService) {
         this.predmetService = predmetService;
     }
+    
     
     @RequestMapping(method = RequestMethod.GET) 
     public Set<Predmet> getAllPredmeti() {
