@@ -58,7 +58,7 @@ public class Student  {
     
     @JsonBackReference 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sid")
-    private Set<PolozeniIspiti> ispitivani = new HashSet<>();
+    private List<PolozeniIspiti> ispitivani = new ArrayList<>();
 
     public int getStudentId() {
         return studentId;
@@ -68,11 +68,11 @@ public class Student  {
         this.studentId = studentId;
     }
 
-    public Set<PolozeniIspiti> getIspitivani() {
+    public List<PolozeniIspiti> getIspitivani() {
         return ispitivani;
     }
 
-    public void setIspitivani(Set<PolozeniIspiti> ispitivani) {
+    public void setIspitivani(List<PolozeniIspiti> ispitivani) {
         this.ispitivani = ispitivani;
     }
 

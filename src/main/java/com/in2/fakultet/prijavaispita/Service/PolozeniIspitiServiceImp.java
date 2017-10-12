@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.in2.fakultet.prijavaispita.Repository.PolozeniIspitiRepository;
 import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.springframework.data.domain.Sort;
 
@@ -24,8 +26,8 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
     }
 
     @Override
-    public Set<PolozeniIspiti> getAllPolozeniIspiti() {
-        Set<PolozeniIspiti> ispiti = new HashSet<>();
+    public List<PolozeniIspiti> getAllPolozeniIspiti() {
+        List<PolozeniIspiti> ispiti = new ArrayList<>();
         polozeniIspitiRepository.findAll().forEach(ispiti::add);
         return ispiti;
     }
@@ -46,8 +48,8 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
     }
 
     @Override
-    public Set<PolozeniIspiti> getAllByStudent(int id) {
-        Set<PolozeniIspiti> ispiti = new HashSet<>();
+    public List<PolozeniIspiti> getAllByStudent(int id) {
+        List<PolozeniIspiti> ispiti = new ArrayList<>();
         ispiti= studentRepository.findOne(id).getIspitivani();
         return ispiti;
        }

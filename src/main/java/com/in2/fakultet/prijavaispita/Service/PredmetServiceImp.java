@@ -7,7 +7,9 @@ package com.in2.fakultet.prijavaispita.Service;
 
 import com.in2.fakultet.prijavaispita.Entity.Predmet;
 import com.in2.fakultet.prijavaispita.Repository.PredmetRepository;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +31,8 @@ public class PredmetServiceImp implements PredmetService{
     
 
     @Override
-    public Set<Predmet> getAllPredmeti() {
-        Set<Predmet> ispiti = new HashSet<>();
+    public List<Predmet> getAllPredmeti() {
+        List<Predmet> ispiti = new ArrayList <>();
         predmetRepository.findAll().forEach(ispiti::add);
         return ispiti;
     }

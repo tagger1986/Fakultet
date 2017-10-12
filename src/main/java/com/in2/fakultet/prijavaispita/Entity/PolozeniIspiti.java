@@ -23,7 +23,7 @@ public class PolozeniIspiti {
     @Column
     @NotNull
     @GeneratedValue
-    @OrderBy
+//    @OrderBy
     private int id;
     
     @ManyToOne
@@ -58,12 +58,12 @@ public class PolozeniIspiti {
     
     @Column
     @NotNull
-    @OrderBy()
+//    @OrderBy()
     private int grade;
     
     @Column
     @NotNull
-    @OrderBy
+//    @OrderBy
     private Date datumPolaganja;
     
     

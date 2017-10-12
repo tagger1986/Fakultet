@@ -3,6 +3,7 @@ package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
 import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,7 +51,7 @@ public class PolozeniIspitiController{
     
     
     @RequestMapping(value = "/izv",method = RequestMethod.GET) 
-    public Set<PolozeniIspiti>getAllPolozeniIspiti() {
+    public List<PolozeniIspiti>getAllPolozeniIspiti() {
         return polozeniIspitiService.getAllPolozeniIspiti();
     }
         
