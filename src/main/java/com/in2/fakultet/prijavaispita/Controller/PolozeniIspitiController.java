@@ -58,7 +58,7 @@ public class PolozeniIspitiController{
         
 
     @RequestMapping (value = "izv/{sid}", method = RequestMethod.GET)
-    public List<PolozeniIspiti> findAllBySid(@Valid Integer sid ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
+    public List<PolozeniIspiti> findAllBySid(@PathVariable(name = "sid") Student sid ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
         return polozeniIspitiService.findAllBySid(sid);
     }
     

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.List;
 import java.util.Set;
+import org.springframework.stereotype.Controller;
 
 
 /**
@@ -18,7 +19,7 @@ import java.util.Set;
  * @author nosto
  */
 
-@RestController
+@Controller
 @RequestMapping("/student")
 public class StudentController {
     
@@ -34,7 +35,7 @@ public class StudentController {
         return studentService.getAllStudents();
     }
     
-    @RequestMapping (value = "/123/{lastUpdatedBy}", method = RequestMethod.GET)
+    @RequestMapping (value = "/modified/{lastUpdatedBy}", method = RequestMethod.GET)
     public List<Student> findAllByLastUpdatedBy (@PathVariable("lastUpdatedBy")int id ){
         return studentService.findAllByLastUpdatedBy(id);
     }

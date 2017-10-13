@@ -67,7 +67,7 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
     }
 
     @Override
-    public List<PolozeniIspiti> findAllBySid(int sid) {
+    public List<PolozeniIspiti> findAllBySid(Student sid) {
       return polozeniIspitiRepository.findAllBySid(sid);
     }
     

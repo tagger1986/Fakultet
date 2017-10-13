@@ -18,8 +18,7 @@ import javax.validation.constraints.NotNull;
  * @author nosto
  */
 
-    
-@Entity    
+@Entity
 @Table(name="PREDMET")
 public class Predmet {
     
