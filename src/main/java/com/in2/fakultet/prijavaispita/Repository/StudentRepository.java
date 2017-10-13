@@ -13,6 +13,7 @@ public interface StudentRepository extends CrudRepository<Student, Serializable>
 
     public List<Student> findAllByLastUpdatedBy(int id);
     public List<Student> findAllByStudentId(int id);
+    public List<Student> findAllByName(String name);
 
   
   
