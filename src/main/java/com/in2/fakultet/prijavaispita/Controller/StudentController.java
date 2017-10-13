@@ -34,9 +34,13 @@ public class StudentController {
         return studentService.getAllStudents();
     }
     
-    @RequestMapping (value = "/{id}", method = RequestMethod.GET)
-    public Student findById (@PathVariable("id")int id ){
-        return studentService.findById(id);
+    @RequestMapping (value = "/123/{lastUpdatedBy}", method = RequestMethod.GET)
+    public List<Student> findAllByLastUpdatedBy (@PathVariable("lastUpdatedBy")int id ){
+        return studentService.findAllByLastUpdatedBy(id);
+    }
+    @RequestMapping (value = "/{studentId}", method = RequestMethod.GET)
+    public List<Student> findAllByStudentId (@PathVariable("studentId")int id ){
+        return studentService.findAllByStudentId(id);
     }
     
     @RequestMapping (value = "svi/{id}", method = RequestMethod.GET)

@@ -47,6 +47,18 @@ public class StudentServiceImp implements StudentService{
     }
 
     @Override
+    public List<Student> findAllByLastUpdatedBy(int id) {
+      return  studentRepository.findAllByLastUpdatedBy(id);
+    }
+    
+      @Override
+    public List<Student> findAllByStudentId(int id) {
+        return studentRepository.findAllByStudentId(id);
+    }
+
+
+
+    @Override
     public List<Student> getStudentById(int id) {
         List<Student> studenti = new ArrayList<>();
         studenti = getAllStudents();

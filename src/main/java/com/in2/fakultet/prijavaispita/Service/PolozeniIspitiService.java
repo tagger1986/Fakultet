@@ -18,4 +18,5 @@ public interface PolozeniIspitiService  {
      public void delete(int id);
      
 
+
 }

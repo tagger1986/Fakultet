@@ -2,6 +2,7 @@
 package com.in2.fakultet.prijavaispita.Service;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
+import com.in2.fakultet.prijavaispita.Entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.in2.fakultet.prijavaispita.Repository.PolozeniIspitiRepository;
@@ -75,10 +76,8 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
 //        return new Sort(Sort.Direction.ASC, "grade");
 //    }
 
-    
 
-    
-    
+  
 } 
 
 

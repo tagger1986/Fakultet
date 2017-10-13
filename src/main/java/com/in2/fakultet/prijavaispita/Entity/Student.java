@@ -27,7 +27,7 @@ public class Student  {
     @Id
     @Column
     @NotNull
-    private int studentId;
+    public int studentId;
     // da li treba nesto da se radi sa PK posebno?
     @Column
     @NotNull
