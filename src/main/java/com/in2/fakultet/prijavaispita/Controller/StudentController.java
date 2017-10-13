@@ -1,23 +1,16 @@
 package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.Student;
-import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.List;
-import java.util.Set;
 import org.springframework.stereotype.Controller;
 
 
-/**
- *
- * @author nosto
- */
 
 @Controller
 @RequestMapping("/student")
@@ -43,7 +36,6 @@ public class StudentController {
     public List<Student> findAllByStudentId (@PathVariable("studentId")int id ){
         return studentService.findAllByStudentId(id);
     }
-    
     
     @RequestMapping (method = RequestMethod.POST)
     public void save(@RequestBody Student student){

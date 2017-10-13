@@ -31,12 +31,12 @@ public class PolozeniIspiti{
     
     @ManyToOne
     @JsonManagedReference
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "studentId")
     private Student sid;
     
     @ManyToOne
     @JsonManagedReference
-    @JoinColumn(name = "predmet_id")
+    @JoinColumn(name = "predmetId")
     private Predmet pid;
     
     @Column

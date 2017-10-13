@@ -2,20 +2,14 @@
 package com.in2.fakultet.prijavaispita.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -78,15 +72,6 @@ public class Student  {
         this.ispitivani = ispitivani;
     }
 
-
-    
-    public int getId() {
-        return studentId;
-    }
-
-    public void setId(int id) {
-        this.studentId = id;
-    }
 
     public int getCode() {
         return code;

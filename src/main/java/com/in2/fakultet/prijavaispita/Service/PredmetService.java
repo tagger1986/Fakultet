@@ -3,7 +3,7 @@ package com.in2.fakultet.prijavaispita.Service;
 
 import com.in2.fakultet.prijavaispita.Entity.Predmet;
 import java.util.List;
-import java.util.Set;
+
 
 /**
  *

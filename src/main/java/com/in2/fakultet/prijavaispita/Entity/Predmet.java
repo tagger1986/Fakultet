@@ -13,10 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-/**
- *
- * @author nosto
- */
 
 @Entity
 @Table(name="PREDMET")
@@ -59,14 +55,13 @@ public class Predmet {
         this.ispiti = ispiti;
     }
 
-  
-
     public Predmet() {
     }
 
     @Override
     public String toString() {
-        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" + predmet + ", ispiti=" + ispiti + '}';
+        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" 
+                + predmet + ", ispiti=" + ispiti + '}';
     }
    
     
