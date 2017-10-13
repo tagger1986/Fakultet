@@ -2,7 +2,10 @@
 package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
+import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
+import com.in2.fakultet.prijavaispita.Service.PredmetService;
+import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,19 +27,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class PolozeniIspitiController{
     @Autowired
     private PolozeniIspitiService polozeniIspitiService;
-//    @Autowired
-//    private PredmetService predmetService;
-//    @Autowired
-//    private StudentService studentService;
+    @Autowired
+    private PredmetService predmetService;
+    @Autowired
+    private StudentService studentService;
 
     
-   //ovo polje ima ref ka objektu koji implementira taj interface kad okinemo bilo koji kontroler
+//   ovo polje ima ref ka objektu koji implementira taj interface kad okinemo bilo koji kontroler
     
 
-    @Autowired  //spring boot kreira i inject u controller
-    public PolozeniIspitiController(PolozeniIspitiService polozeniIspitiService) {
-        this.polozeniIspitiService = polozeniIspitiService;
-    }
+//    @Autowired  //spring boot kreira i inject u controller
+//    public PolozeniIspitiController(PolozeniIspitiService polozeniIspitiService) {
+//        this.polozeniIspitiService = polozeniIspitiService;
+//    }
 //    @Autowired
 //    public PolozeniIspitiController(PredmetService predmetService) {
 //        this.predmetService = predmetService;
@@ -44,7 +48,7 @@ public class PolozeniIspitiController{
 //    public PolozeniIspitiController(StudentService studentService) {
 //        this.studentService = studentService;
 //    }
-    
+//    
     
     
     
@@ -56,8 +60,8 @@ public class PolozeniIspitiController{
     }
         
 
-    @RequestMapping (value = "izv/{id}", method = RequestMethod.GET)
-    public PolozeniIspiti findById (@PathVariable("id")int id ){
+    @RequestMapping (value = "izv/{sid}", method = RequestMethod.GET)
+    public PolozeniIspiti findById(@PathVariable(name = "studentId") int id ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
         return polozeniIspitiService.findById(id);
     }
     
