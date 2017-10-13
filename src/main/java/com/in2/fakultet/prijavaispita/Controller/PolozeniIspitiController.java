@@ -8,6 +8,7 @@ import com.in2.fakultet.prijavaispita.Service.PredmetService;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.List;
 import java.util.Set;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,20 +50,16 @@ public class PolozeniIspitiController{
 //        this.studentService = studentService;
 //    }
 //    
-    
-    
-    
-    
-    
+
     @RequestMapping(value = "/izv",method = RequestMethod.GET) 
     public List<PolozeniIspiti>getAllPolozeniIspiti() {
         return polozeniIspitiService.getAllPolozeniIspiti();
     }
         
 
-    @RequestMapping (value = "izv/{studentId}", method = RequestMethod.GET)
-    public List<PolozeniIspiti> findAllByStudentId(@PathVariable(name = "studentId") int id ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
-        return polozeniIspitiService.findAllByStudentId(id);
+    @RequestMapping (value = "izv/{sid}", method = RequestMethod.GET)
+    public List<PolozeniIspiti> findAllBySid(@Valid Integer sid ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
+        return polozeniIspitiService.findAllBySid(sid);
     }
     
     

@@ -3,6 +3,9 @@ package com.in2.fakultet.prijavaispita.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.in2.fakultet.prijavaispita.Repository.PredmetRepository;
+import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
+import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +20,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="POLOZENI_ISPITI")
-public class PolozeniIspiti {
+public class PolozeniIspiti{
     
     @Id
     @Column

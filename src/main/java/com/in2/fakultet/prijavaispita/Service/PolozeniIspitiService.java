@@ -18,7 +18,7 @@ public interface PolozeniIspitiService  {
      public void delete(int id);
      
      
-     public List<PolozeniIspiti> findAllByStudentId(int id);
+     public List<PolozeniIspiti> findAllBySid(int sid);
 
 
 }
