@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import com.in2.fakultet.prijavaispita.Repository.PolozeniIspitiRepository;
 import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import org.springframework.data.domain.Sort;
 
 
@@ -59,16 +57,16 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
 //        return polozeniIspitiRepository.findAll());
 //    }
 
-    private Sort sortByNameDesc() {
-        return new Sort(Sort.Direction.DESC, "name");
-    }
-    private Sort sortByGradeAsc() {
-        return new Sort(Sort.Direction.ASC, "grade");
-    }
+//    private Sort sortByNameDesc() {
+//        return new Sort(Sort.Direction.DESC, "name");
+//    }
+//    private Sort sortByGradeAsc() {
+//        return new Sort(Sort.Direction.ASC, "grade");
+//    }
 
     @Override
-    public List<PolozeniIspiti> findAllBySid(PolozeniIspiti polozeniIspiti) {
-      return polozeniIspitiRepository.findAllBySid(polozeniIspiti);
+    public List<PolozeniIspiti> findAllByStudentId(Student studentId) {
+      return polozeniIspitiRepository.findAllByStudentId(studentId);
     }
     
     

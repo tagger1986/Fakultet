@@ -53,7 +53,7 @@ public class Student  {
     private String rowStatus;
     
     @JsonBackReference 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sid")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "studentId")
     private List<PolozeniIspiti> ispitivani = new ArrayList<>();
 
     public int getStudentId() {

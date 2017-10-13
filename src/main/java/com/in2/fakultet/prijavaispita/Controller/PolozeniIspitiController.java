@@ -2,6 +2,7 @@
 package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
+import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
 import com.in2.fakultet.prijavaispita.Service.PredmetService;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
@@ -36,9 +37,12 @@ public class PolozeniIspitiController{
     }
         
 
-    @RequestMapping (value = "izv/{sid}", method = RequestMethod.GET)
-    public List<PolozeniIspiti> findAllBySid(@ModelAttribute("studentId") PolozeniIspiti polozeniIspiti ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
-        return polozeniIspitiService.findAllBySid(polozeniIspiti);
+    @RequestMapping (value = "izv/{studentId}", method = RequestMethod.GET)
+    public List<PolozeniIspiti> findAllByStudentId(@ModelAttribute ("studentId") Student studentId ){ 
+        
+
+/// NECE DA IZMAPIRA FOREIGN KEY!!!
+        return polozeniIspitiService.findAllByStudentId(studentId);
     }
     
     

@@ -1,6 +1,7 @@
 package com.in2.fakultet.prijavaispita.Service;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
+import com.in2.fakultet.prijavaispita.Entity.Student;
 import java.util.List;
 
 public interface PolozeniIspitiService  {
@@ -12,7 +13,7 @@ public interface PolozeniIspitiService  {
      public void delete(int id);
      
      
-     public List<PolozeniIspiti> findAllBySid(PolozeniIspiti polozeniIspiti);
+     public List<PolozeniIspiti> findAllByStudentId(Student studentId);
 
 
 }

@@ -28,7 +28,7 @@ public class Predmet {
     private String predmet;
     
     @JsonBackReference 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pid")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "predmetId")
     private List<PolozeniIspiti> ispiti = new ArrayList<>();
 
     public int getPredmetId() {

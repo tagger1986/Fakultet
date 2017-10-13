@@ -3,17 +3,14 @@ package com.in2.fakultet.prijavaispita.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.in2.fakultet.prijavaispita.Repository.PredmetRepository;
-import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
-import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -29,15 +26,15 @@ public class PolozeniIspiti{
 //    @OrderBy
     private int id;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonManagedReference
     @JoinColumn(name = "studentId")
-    private Student sid;
+    private Student studentId;
     
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "predmetId")
-    private Predmet pid;
+    private Predmet predmetId;
     
     @Column
     @NotNull
@@ -73,7 +70,7 @@ public class PolozeniIspiti{
 
     public PolozeniIspiti() {
     }
-    
+
     public int getId() {
         return id;
     }
@@ -82,12 +79,28 @@ public class PolozeniIspiti{
         this.id = id;
     }
 
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public Student getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Student studentId) {
+        this.studentId = studentId;
+    }
+
+    public Predmet getPredmetId() {
+        return predmetId;
+    }
+
+    public void setPredmetId(Predmet predmetId) {
+        this.predmetId = predmetId;
     }
 
     public int getCreatedBy() {
@@ -137,11 +150,7 @@ public class PolozeniIspiti{
     public void setDatumPolaganja(Date datumPolaganja) {
         this.datumPolaganja = datumPolaganja;
     }
-    
-    
-    
 
-    
     @PrePersist
     public void prePersist() {
        Date now = new java.sql.Date(new java.util.Date().getTime());
@@ -150,24 +159,5 @@ public class PolozeniIspiti{
         this.createdBy = 1;
         this.lastUpdatedBy = 1;
     }
-
-    @Override
-    public String toString() {
-        return "PolozeniIspiti{" + "id=" + id + ", sid=" + sid + ", pid=" + pid 
-                + ", creationDate=" + creationDate + ", createdBy=" + createdBy 
-                + ", lastUpdatedDate=" + lastUpdatedDate + ", lastUpdatedBy=" 
-                + lastUpdatedBy + ", rowStatus=" + rowStatus + ", grade=" + grade 
-                + ", datumPolaganja=" + datumPolaganja + '}';
-    }
-
-
-    
-    
-    
-    
-    
-
-
-    
 
 }
