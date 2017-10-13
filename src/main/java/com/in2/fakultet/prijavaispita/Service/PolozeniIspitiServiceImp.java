@@ -66,6 +66,13 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
         return new Sort(Sort.Direction.ASC, "grade");
     }
 
+    @Override
+    public List<PolozeniIspiti> findAllByStudentId(int id) {
+      return polozeniIspitiRepository.findAllByStudentId(id);
+    }
+    
+    
+
 
   
 } 

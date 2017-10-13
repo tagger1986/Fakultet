@@ -60,9 +60,9 @@ public class PolozeniIspitiController{
     }
         
 
-    @RequestMapping (value = "izv/{sid}", method = RequestMethod.GET)
-    public PolozeniIspiti findById(@PathVariable(name = "studentId") int id ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
-        return polozeniIspitiService.findById(id);
+    @RequestMapping (value = "izv/{studentId}", method = RequestMethod.GET)
+    public List<PolozeniIspiti> findAllByStudentId(@PathVariable(name = "studentId") int id ){      /// NECE DA IZMAPIRA FOREIGN KEY!!!
+        return polozeniIspitiService.findAllByStudentId(id);
     }
     
     
@@ -76,6 +76,13 @@ public class PolozeniIspitiController{
     public void delete (@PathVariable("id")int id ){
         polozeniIspitiService.delete(id);
     }
+    
+    
+    
+    
+    
+    
+    
     
 }
 
