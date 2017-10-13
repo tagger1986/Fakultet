@@ -17,4 +17,5 @@ public interface PolozeniIspitiService  {
      public PolozeniIspiti save(PolozeniIspiti ispit);
      public void delete(int id);
 
+
 }
