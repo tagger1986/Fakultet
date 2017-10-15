@@ -73,13 +73,13 @@ public class Student  {
     }
 
 
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
+//    public int getCode() {
+//        return code;
+//    }
+//
+//    public void setCode(int code) {
+//        this.code = code;
+//    }
 
     public String getName() {
         return name;
@@ -97,53 +97,53 @@ public class Student  {
         this.surname = surname;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public int getLastUpdatedBy() {
-        return lastUpdatedBy;
-    }
-
-    public void setLastUpdatedBy(int lastUpdatedBy) {
-        this.lastUpdatedBy = lastUpdatedBy;
-    }
-
-    public Date getLastUpdatedDate() {
-        return lastUpdatedDate;
-    }
-
-    public void setLastUpdatedDate(Date lastUpdatedDate) {
-        this.lastUpdatedDate = lastUpdatedDate;
-    }
-
-    public String getRowStatus() {
-        return rowStatus;
-    }
-
-    public void setRowStatus(String rowStatus) {
-        this.rowStatus = rowStatus;
-    }
+//    public String getDescription() {
+//        return description;
+//    }
+//
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
+//
+//    public Date getCreationDate() {
+//        return creationDate;
+//    }
+//
+//    public void setCreationDate(Date creationDate) {
+//        this.creationDate = creationDate;
+//    }
+//
+//    public int getCreatedBy() {
+//        return createdBy;
+//    }
+//
+//    public void setCreatedBy(int createdBy) {
+//        this.createdBy = createdBy;
+//    }
+//
+//    public int getLastUpdatedBy() {
+//        return lastUpdatedBy;
+//    }
+//
+//    public void setLastUpdatedBy(int lastUpdatedBy) {
+//        this.lastUpdatedBy = lastUpdatedBy;
+//    }
+//
+//    public Date getLastUpdatedDate() {
+//        return lastUpdatedDate;
+//    }
+//
+//    public void setLastUpdatedDate(Date lastUpdatedDate) {
+//        this.lastUpdatedDate = lastUpdatedDate;
+//    }
+//
+//    public String getRowStatus() {
+//        return rowStatus;
+//    }
+//
+//    public void setRowStatus(String rowStatus) {
+//        this.rowStatus = rowStatus;
+//    }
     
     @PrePersist
     public void prePersist() {
@@ -154,10 +154,15 @@ public class Student  {
         this.lastUpdatedBy = 1;
     }
 
- 
-
     public Student() {
     }
+
+    @Override
+    public String toString() {
+        return "Student{" + "name=" + name + ", surname=" + surname + ", ispitivani=" + ispitivani + '}';
+    }
+    
+    
 
     
 }

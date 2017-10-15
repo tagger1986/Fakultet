@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -28,16 +30,16 @@ public class Predmet {
     private String predmet;
     
     @JsonBackReference 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "predmetId")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "predmetId")
     private List<PolozeniIspiti> ispiti = new ArrayList<>();
 
-    public int getPredmetId() {
-        return predmetId;
-    }
-
-    public void setPredmetId(int predmetId) {
-        this.predmetId = predmetId;
-    }
+//    public int getPredmetId() {
+//        return predmetId;
+//    }
+//
+//    public void setPredmetId(int predmetId) {
+//        this.predmetId = predmetId;
+//    }
 
     public String getPredmet() {
         return predmet;
@@ -54,18 +56,13 @@ public class Predmet {
     public void setIspiti(List<PolozeniIspiti> ispiti) {
         this.ispiti = ispiti;
     }
-
+   
     public Predmet() {
     }
 
     @Override
     public String toString() {
-        return "Predmet{" + "predmetId=" + predmetId + ", predmet=" 
-                + predmet + ", ispiti=" + ispiti + '}';
+        return "Predmet{" + "predmet=" + predmet + ", ispiti=" + ispiti + '}';
     }
-   
-    
-
-
 
 }

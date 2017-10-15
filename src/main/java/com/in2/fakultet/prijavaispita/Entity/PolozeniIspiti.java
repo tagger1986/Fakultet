@@ -30,11 +30,13 @@ public class PolozeniIspiti{
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonManagedReference
     @JoinColumn(name = "studentId")
+    @NotNull
     private Student studentId;
     
     @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "predmetId")
+    @NotNull
     private Predmet predmetId;
     
     @Column
@@ -80,61 +82,61 @@ public class PolozeniIspiti{
         this.id = id;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public Student getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Student studentId) {
-        this.studentId = studentId;
-    }
-
-    public Predmet getPredmetId() {
-        return predmetId;
-    }
-
-    public void setPredmetId(Predmet predmetId) {
-        this.predmetId = predmetId;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getLastUpdatedDate() {
-        return lastUpdatedDate;
-    }
-
-    public void setLastUpdatedDate(Date lastUpdatedDate) {
-        this.lastUpdatedDate = lastUpdatedDate;
-    }
-
-    public int getLastUpdatedBy() {
-        return lastUpdatedBy;
-    }
-
-    public void setLastUpdatedBy(int lastUpdatedBy) {
-        this.lastUpdatedBy = lastUpdatedBy;
-    }
-
-    public String getRowStatus() {
-        return rowStatus;
-    }
-
-    public void setRowStatus(String rowStatus) {
-        this.rowStatus = rowStatus;
-    }
+//    public void setCreationDate(Date creationDate) {
+//        this.creationDate = creationDate;
+//    }
+//
+//    public Date getCreationDate() {
+//        return creationDate;
+//    }
+//
+//    public Student getStudentId() {
+//        return studentId;
+//    }
+//
+//    public void setStudentId(Student studentId) {
+//        this.studentId = studentId;
+//    }
+//
+//    public Predmet getPredmetId() {
+//        return predmetId;
+//    }
+//
+//    public void setPredmetId(Predmet predmetId) {
+//        this.predmetId = predmetId;
+//    }
+//
+//    public int getCreatedBy() {
+//        return createdBy;
+//    }
+//
+//    public void setCreatedBy(int createdBy) {
+//        this.createdBy = createdBy;
+//    }
+//
+//    public Date getLastUpdatedDate() {
+//        return lastUpdatedDate;
+//    }
+//
+//    public void setLastUpdatedDate(Date lastUpdatedDate) {
+//        this.lastUpdatedDate = lastUpdatedDate;
+//    }
+//
+//    public int getLastUpdatedBy() {
+//        return lastUpdatedBy;
+//    }
+//
+//    public void setLastUpdatedBy(int lastUpdatedBy) {
+//        this.lastUpdatedBy = lastUpdatedBy;
+//    }
+//
+//    public String getRowStatus() {
+//        return rowStatus;
+//    }
+//
+//    public void setRowStatus(String rowStatus) {
+//        this.rowStatus = rowStatus;
+//    }
 
     public int getGrade() {
         return grade;
@@ -160,5 +162,13 @@ public class PolozeniIspiti{
         this.createdBy = 1;
         this.lastUpdatedBy = 1;
     }
+
+    @Override
+    public String toString() {
+        return "PolozeniIspiti{" + "studentId=" + studentId + ", grade=" + grade + ", datumPolaganja=" + datumPolaganja + '}';
+    }
+    
+    
+    
 
 }

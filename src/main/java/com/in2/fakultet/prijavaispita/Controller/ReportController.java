@@ -25,12 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RestController
 @RequestMapping("/report")
-public class PolozeniIspitiController {
+public class ReportController {
 
     @Autowired
     private PolozeniIspitiService polozeniIspitiService;
-    @Autowired
-    private PredmetService predmetService;
     @Autowired
     private StudentService studentService;
 
