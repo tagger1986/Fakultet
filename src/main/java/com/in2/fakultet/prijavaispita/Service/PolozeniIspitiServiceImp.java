@@ -65,7 +65,7 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
 //    }
 
     @Override
-    public List<PolozeniIspiti> findAllByStudentId(Student studentId) {
+    public List<PolozeniIspiti> findAllByStudentId(int studentId) {
       return polozeniIspitiRepository.findAllByStudentId(studentId);
     }
     

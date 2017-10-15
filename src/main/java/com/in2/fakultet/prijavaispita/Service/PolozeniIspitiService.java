@@ -13,7 +13,7 @@ public interface PolozeniIspitiService  {
      public void delete(int id);
      
      
-     public List<PolozeniIspiti> findAllByStudentId(Student studentId);
+     public List<PolozeniIspiti> findAllByStudentId(int studentId);
 
 
 }
