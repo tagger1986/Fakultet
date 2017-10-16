@@ -17,7 +17,8 @@ public class StudentServiceImp implements StudentService{
     public StudentServiceImp(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
-    
+    @Autowired
+    private PredmetService predmetService;
     
 
     @Override

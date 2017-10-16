@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.List;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/student")
 public class StudentController {
     
@@ -32,8 +33,8 @@ public class StudentController {
     public List<Student> findAllByLastUpdatedBy (@PathVariable("lastUpdatedBy")int id ){
         return studentService.findAllByLastUpdatedBy(id);
     }
-    @RequestMapping (value = "/{studentId}", method = RequestMethod.GET)
-    public List<Student> findAllByStudentId (@PathVariable("studentId")int id ){
+    @RequestMapping (value = "/{id}", method = RequestMethod.GET)
+    public List<Student> findAllByStudentId (@PathVariable("id")int id ){
         return studentService.findAllByStudentId(id);
     }
     

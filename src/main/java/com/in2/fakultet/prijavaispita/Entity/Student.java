@@ -5,11 +5,15 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -53,7 +57,8 @@ public class Student  {
     private String rowStatus;
     
     @JsonBackReference 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "studentId")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "studentId",cascade = CascadeType.ALL)
+    @OrderBy("studentId asc")
     private List<PolozeniIspiti> ispitivani = new ArrayList<>();
 
     public int getStudentId() {

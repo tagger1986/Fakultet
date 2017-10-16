@@ -9,6 +9,7 @@ import com.in2.fakultet.prijavaispita.Repository.PolozeniIspitiRepository;
 import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.OrderBy;
 import org.springframework.data.domain.Sort;
 
 
@@ -52,7 +53,6 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
         ispiti= studentRepository.findOne(id).getIspitivani();
         return ispiti;
        }
-
 //     public Set<PolozeniIspiti> findAll() {
 //        return polozeniIspitiRepository.findAll());
 //    }
@@ -68,11 +68,6 @@ public class PolozeniIspitiServiceImp implements PolozeniIspitiService{
     public List<PolozeniIspiti> findAllByStudentId(int studentId) {
       return polozeniIspitiRepository.findAllByStudentId(studentId);
     }
-    
-    
-
-
-  
 } 
 
 

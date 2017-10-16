@@ -23,7 +23,6 @@ public class PredmetController {
         this.predmetService = predmetService;
     }
     
-    
     @RequestMapping(method = RequestMethod.GET) 
     public List<Predmet> getAllPredmeti() {
         return predmetService.getAllPredmeti();

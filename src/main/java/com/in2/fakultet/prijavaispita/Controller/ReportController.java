@@ -3,15 +3,11 @@ package com.in2.fakultet.prijavaispita.Controller;
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
 import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
-import com.in2.fakultet.prijavaispita.Service.PredmetService;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,9 +34,9 @@ public class ReportController {
     }
 
     @RequestMapping(value = "izv/{studentId}", method = RequestMethod.GET)
-    public ResponseEntity<Collection<PolozeniIspiti>> findAllByStudentId(@PathVariable int studentId) {
+    public List<PolozeniIspiti> findAllByStudentId(@PathVariable int studentId) {
         Student student = studentService.findById(studentId);
-        return new ResponseEntity<>(student.getIspitivani(), HttpStatus.OK);
+        return new ArrayList<>(student.getIspitivani());
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -52,5 +48,4 @@ public class ReportController {
     public void delete(@PathVariable("id") int id) {
         polozeniIspitiService.delete(id);
     }
-
 }

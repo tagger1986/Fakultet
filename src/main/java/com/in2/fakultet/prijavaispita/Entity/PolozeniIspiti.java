@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -24,10 +23,10 @@ public class PolozeniIspiti{
     @Column
     @NotNull
     @GeneratedValue
-//    @OrderBy
+    @OrderBy("id asc")
     private int id;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonManagedReference
     @JoinColumn(name = "studentId")
     @NotNull
@@ -145,7 +144,7 @@ public class PolozeniIspiti{
     public void setGrade(int grade) {
         this.grade = grade;
     }
-
+    
     public Date getDatumPolaganja() {
         return datumPolaganja;
     }
