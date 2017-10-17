@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.List;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -38,12 +37,11 @@ public class StudentController {
         return studentService.findAllByStudentId(id);
     }
     
-    @RequestMapping (method = RequestMethod.POST)
+    @RequestMapping (value = "/new", method = RequestMethod.POST)
     public void save(@RequestBody Student student){
         studentService.save(student);
     }
  
-   
     @RequestMapping (value = "/{id}", method = RequestMethod.DELETE)
     public void delete (@PathVariable("id")int id ){
         studentService.delete(id);

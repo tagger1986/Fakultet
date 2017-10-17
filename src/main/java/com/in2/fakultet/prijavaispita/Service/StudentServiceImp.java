@@ -36,9 +36,7 @@ public class StudentServiceImp implements StudentService{
     @Override
     public Student save(Student student) {
         return studentRepository.save(student);
-      
     }
-
     @Override
     public void delete(int id) {
         studentRepository.delete(id);

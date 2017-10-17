@@ -2,15 +2,12 @@
 package com.in2.fakultet.prijavaispita.Service;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
-import com.in2.fakultet.prijavaispita.Entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.in2.fakultet.prijavaispita.Repository.PolozeniIspitiRepository;
 import com.in2.fakultet.prijavaispita.Repository.StudentRepository;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.OrderBy;
-import org.springframework.data.domain.Sort;
 
 
 @Service

@@ -2,6 +2,7 @@
 package com.in2.fakultet.prijavaispita.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.sql.Date;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="POLOZENI_ISPITI")
@@ -28,12 +30,14 @@ public class PolozeniIspiti{
     
     @ManyToOne
     @JsonManagedReference
+    @JsonIgnore
     @JoinColumn(name = "studentId")
     @NotNull
     private Student studentId;
     
     @ManyToOne
     @JsonManagedReference
+    @JsonIgnore
     @JoinColumn(name = "predmetId")
     @NotNull
     private Predmet predmetId;
@@ -60,12 +64,13 @@ public class PolozeniIspiti{
     
     @Column
     @NotNull
-//    @OrderBy()
+    @OrderBy
+//    @Size(min = 5,max = 7)
     private int grade;
     
     @Column
     @NotNull
-//    @OrderBy
+    @OrderBy
     private Date datumPolaganja;
     
     
@@ -81,61 +86,61 @@ public class PolozeniIspiti{
         this.id = id;
     }
 
-//    public void setCreationDate(Date creationDate) {
-//        this.creationDate = creationDate;
-//    }
-//
-//    public Date getCreationDate() {
-//        return creationDate;
-//    }
-//
-//    public Student getStudentId() {
-//        return studentId;
-//    }
-//
-//    public void setStudentId(Student studentId) {
-//        this.studentId = studentId;
-//    }
-//
-//    public Predmet getPredmetId() {
-//        return predmetId;
-//    }
-//
-//    public void setPredmetId(Predmet predmetId) {
-//        this.predmetId = predmetId;
-//    }
-//
-//    public int getCreatedBy() {
-//        return createdBy;
-//    }
-//
-//    public void setCreatedBy(int createdBy) {
-//        this.createdBy = createdBy;
-//    }
-//
-//    public Date getLastUpdatedDate() {
-//        return lastUpdatedDate;
-//    }
-//
-//    public void setLastUpdatedDate(Date lastUpdatedDate) {
-//        this.lastUpdatedDate = lastUpdatedDate;
-//    }
-//
-//    public int getLastUpdatedBy() {
-//        return lastUpdatedBy;
-//    }
-//
-//    public void setLastUpdatedBy(int lastUpdatedBy) {
-//        this.lastUpdatedBy = lastUpdatedBy;
-//    }
-//
-//    public String getRowStatus() {
-//        return rowStatus;
-//    }
-//
-//    public void setRowStatus(String rowStatus) {
-//        this.rowStatus = rowStatus;
-//    }
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public Student getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Student studentId) {
+        this.studentId = studentId;
+    }
+
+    public Predmet getPredmetId() {
+        return predmetId;
+    }
+
+    public void setPredmetId(Predmet predmetId) {
+        this.predmetId = predmetId;
+    }
+
+    public int getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(int createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getLastUpdatedDate() {
+        return lastUpdatedDate;
+    }
+
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    public int getLastUpdatedBy() {
+        return lastUpdatedBy;
+    }
+
+    public void setLastUpdatedBy(int lastUpdatedBy) {
+        this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    public String getRowStatus() {
+        return rowStatus;
+    }
+
+    public void setRowStatus(String rowStatus) {
+        this.rowStatus = rowStatus;
+    }
 
     public int getGrade() {
         return grade;

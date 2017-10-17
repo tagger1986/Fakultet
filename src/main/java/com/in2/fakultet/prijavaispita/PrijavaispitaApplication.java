@@ -8,8 +8,6 @@ public class PrijavaispitaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PrijavaispitaApplication.class, args);
-                
-                
+                            
 	}
-   
 }
