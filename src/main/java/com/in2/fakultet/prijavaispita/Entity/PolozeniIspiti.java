@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -43,19 +45,15 @@ public class PolozeniIspiti{
     private Predmet predmetId;
     
     @Column
-    @NotNull
     private Date creationDate;
     
     @Column
-    @NotNull
     private int createdBy;
     
     @Column
-    @NotNull
     private Date lastUpdatedDate;
     
     @Column
-    @NotNull
     private int lastUpdatedBy;
     
     @Column
@@ -65,7 +63,8 @@ public class PolozeniIspiti{
     @Column
     @NotNull
     @OrderBy
-//    @Size(min = 5,max = 7)
+    @Min(value = 5,message = "Minimalna ocena je 5")
+    @Max(value = 10,message = "Maksimalna ocena je 10")
     private int grade;
     
     @Column
@@ -141,7 +140,7 @@ public class PolozeniIspiti{
     public void setRowStatus(String rowStatus) {
         this.rowStatus = rowStatus;
     }
-
+    
     public int getGrade() {
         return grade;
     }

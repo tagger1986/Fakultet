@@ -19,6 +19,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -34,7 +35,7 @@ public class Student  {
     @NotNull
     private int code;
     @Column
-    @NotNull
+    @NotEmpty(message = "The above field must not be blank.")
     private String name;
     @Column
     @NotNull
