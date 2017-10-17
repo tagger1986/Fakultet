@@ -4,11 +4,6 @@ package com.in2.fakultet.prijavaispita.Service;
 import com.in2.fakultet.prijavaispita.Entity.Student;
 import java.util.List;
 
-
-/**
- *
- * @author nosto
- */
 public interface StudentService {
     
      public List<Student> getAllStudents();

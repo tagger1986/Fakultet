@@ -1,10 +1,7 @@
 package com.in2.fakultet.prijavaispita.Controller;
 
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
-import com.in2.fakultet.prijavaispita.Entity.Student;
 import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
-import com.in2.fakultet.prijavaispita.Service.StudentService;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

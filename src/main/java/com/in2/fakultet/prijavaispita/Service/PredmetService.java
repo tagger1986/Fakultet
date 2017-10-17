@@ -4,11 +4,6 @@ package com.in2.fakultet.prijavaispita.Service;
 import com.in2.fakultet.prijavaispita.Entity.Predmet;
 import java.util.List;
 
-
-/**
- *
- * @author nosto
- */
 public interface PredmetService {
     
      public List<Predmet> getAllPredmeti();

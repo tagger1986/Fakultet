@@ -11,13 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name="POLOZENI_ISPITI")
@@ -27,7 +26,6 @@ public class PolozeniIspiti{
     @Column
     @NotNull
     @GeneratedValue
-    @OrderBy("id asc")
     private int id;
     
     @ManyToOne
@@ -62,14 +60,12 @@ public class PolozeniIspiti{
     
     @Column
     @NotNull
-    @OrderBy
     @Min(value = 5,message = "Minimalna ocena je 5")
     @Max(value = 10,message = "Maksimalna ocena je 10")
     private int grade;
     
     @Column
     @NotNull
-    @OrderBy
     private Date datumPolaganja;
     
     
@@ -165,13 +161,4 @@ public class PolozeniIspiti{
         this.createdBy = 1;
         this.lastUpdatedBy = 1;
     }
-
-    @Override
-    public String toString() {
-        return "PolozeniIspiti{" + "studentId=" + studentId + ", grade=" + grade + ", datumPolaganja=" + datumPolaganja + '}';
-    }
-    
-    
-    
-
 }
