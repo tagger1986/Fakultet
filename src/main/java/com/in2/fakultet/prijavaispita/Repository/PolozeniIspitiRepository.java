@@ -13,5 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface PolozeniIspitiRepository extends CrudRepository<PolozeniIspiti, Serializable>,JpaRepository<PolozeniIspiti, Serializable>{
     
             public List<PolozeniIspiti> findAllByStudentId(int studentId);
+        
 
 }

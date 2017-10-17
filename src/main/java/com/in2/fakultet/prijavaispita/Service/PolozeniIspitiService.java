@@ -6,14 +6,14 @@ import java.util.List;
 
 public interface PolozeniIspitiService  {
     
-     public List<PolozeniIspiti> getAllPolozeniIspiti();
-     public List<PolozeniIspiti> getAllByStudent(int id);
+     public List<PolozeniIspiti> findAllPolozeniIspiti();
      public PolozeniIspiti findById(int id);
      public PolozeniIspiti save(PolozeniIspiti ispit);
      public void delete(int id);
      
      
      public List<PolozeniIspiti> findAllByStudentId(int studentId);
+     public String calculateAvg(int studentId);
 
 
 }

@@ -15,9 +15,8 @@ public interface StudentService {
      public Student findById(int id);
      public Student save(Student student);
      public void delete(int id);
-     
-    public List<Student> findAllByLastUpdatedBy(int id);
-    public List<Student> findAllByStudentId(int id);
+     public List<Student> findAllByLastUpdatedBy(int id);
+     public List<Student> findAllByStudentId(int id);
          
 //getAllStudents, findById, save, delete
 }

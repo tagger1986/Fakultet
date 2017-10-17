@@ -6,7 +6,6 @@ import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
 import com.in2.fakultet.prijavaispita.Service.StudentService;
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author nosto
- */
 @Controller
 @RestController
 @RequestMapping("/report")
@@ -28,35 +23,21 @@ public class ReportController {
 
     @Autowired
     private PolozeniIspitiService polozeniIspitiService;
-    @Autowired
-    private StudentService studentService;
 
     @RequestMapping(value = "/izv", method = RequestMethod.GET)
-    public List<PolozeniIspiti> getAllPolozeniIspiti() {
-        return polozeniIspitiService.getAllPolozeniIspiti();
+    public List<PolozeniIspiti> findAllPolozeniIspiti() {
+        return polozeniIspitiService.findAllPolozeniIspiti();
     }
 
     @RequestMapping(value = "izv/{studentId}", method = RequestMethod.GET)
     public List<PolozeniIspiti> findAllByStudentId(@PathVariable int studentId) {
-        Student student = studentService.findById(studentId);
-         return new ArrayList<>(student.getIspitivani());
+        return polozeniIspitiService.findAllByStudentId(studentId);
     }
+
     @RequestMapping(value = "average/{studentId}", method = RequestMethod.GET)
     public String calculateAvg(@PathVariable int studentId) {
-       Student student = studentService.findById(studentId);
-       List <PolozeniIspiti> studentIzv = student.getIspitivani();
-        int brojacOcena = 0;
-        double zbirOcena = 0;
-        for (PolozeniIspiti polozeniIspiti : studentIzv) {
-            zbirOcena += polozeniIspiti.getGrade();
-            brojacOcena++;
-        }
-        double prosek = zbirOcena / brojacOcena;
-        return "Prosecna ocena je "+ prosek;
-
+        return polozeniIspitiService.calculateAvg(studentId);
     }
-            
-    
 
     @RequestMapping(method = RequestMethod.POST)
     public void save(@RequestBody @Validated PolozeniIspiti ispit, BindingResult result) {
