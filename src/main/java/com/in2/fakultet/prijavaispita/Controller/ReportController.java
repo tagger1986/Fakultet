@@ -43,16 +43,16 @@ public class ReportController {
     }
     @RequestMapping(value = "average/{studentId}", method = RequestMethod.GET)
     public String calculateAvg(@PathVariable int studentId) {
-
-       List <PolozeniIspiti> studentIzv = polozeniIspitiService.findAllByStudentId(studentId);
+       Student student = studentService.findById(studentId);
+       List <PolozeniIspiti> studentIzv = student.getIspitivani();
         int brojacOcena = 0;
-        int zbirOcena = 0;
+        double zbirOcena = 0;
         for (PolozeniIspiti polozeniIspiti : studentIzv) {
             zbirOcena += polozeniIspiti.getGrade();
             brojacOcena++;
         }
         double prosek = zbirOcena / brojacOcena;
-        return "Prosecna ocena je"+ prosek;
+        return "Prosecna ocena je "+ prosek;
 
     }
             
