@@ -59,6 +59,11 @@ public class Student  {
     
     public Student() {
     }
+
+    public Student(int studentId, String name) {
+        this.studentId = studentId;
+        this.name = name;
+    }
     
     
     @JsonIgnore
