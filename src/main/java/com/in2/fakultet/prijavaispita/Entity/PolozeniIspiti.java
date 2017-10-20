@@ -73,6 +73,14 @@ public class PolozeniIspiti{
     public PolozeniIspiti() {
     }
 
+    public PolozeniIspiti(int id, Student studentId, int grade) {
+        this.id = id;
+        this.studentId = studentId;
+        this.grade = grade;
+    }
+    
+    
+
     public int getId() {
         return id;
     }

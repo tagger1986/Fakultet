@@ -3,6 +3,7 @@ package com.in2.fakultet.prijavaispita.Controller;
 import com.in2.fakultet.prijavaispita.Entity.PolozeniIspiti;
 import com.in2.fakultet.prijavaispita.Service.PolozeniIspitiService;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,7 +38,7 @@ public class ReportController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void save(@RequestBody @Validated PolozeniIspiti ispit, BindingResult result) {
+    public void save(@RequestBody @Valid PolozeniIspiti ispit, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println(result);
         } else {
